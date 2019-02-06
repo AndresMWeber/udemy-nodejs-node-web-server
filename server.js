@@ -47,11 +47,19 @@ app.get(root+'about', (req, res) => {
     });
 });
 
-app.get(root+'bad', (req, res) => {
+app.get(root+'404', (req, res) => {
     res.send({
-        errorMessage: 'Unable to handle request'
+        errorMessage: 'Uh Oh...nothing here!'
     });
 });
+
+app.get(root+'projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects',
+        welcomeMessage: 'My Github Projects:'
+    });
+});
+
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}.`)
